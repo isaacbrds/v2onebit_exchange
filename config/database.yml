@@ -1,0 +1,23 @@
+default: &default
+  adapter: postgresql
+  encoding: utf8
+  host: postgres
+  user: postgres
+  password: postgres
+  port: '5432'
+
+development:
+  <<: *default
+  database: V2OneBitExchange_development
+
+
+test:
+  <<: *default
+  database: V2OneBitExchange_test
+ 
+
+production:
+  <<: *default
+  database: V2OneBitExchange_production
+  username: OneBitExchange
+  password: <%= ENV['EXCHANGE_DATABASE_PASSWORD'] %>
